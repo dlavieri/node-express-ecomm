@@ -1,0 +1,31 @@
+<%- include('../partials/head.ejs') %>
+<%- include('../partials/nav.ejs') %>
+    <main>
+        <% if (prods.length > 0) { %>
+            <div class="grid">
+                <% for (let product of prods) { %>
+                    <article class="card product-item">
+                        <img class="card-img-top" src="<%= product.imageUrl %>"
+                            alt="<%= product.name %>">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= product.name %></h5>
+                            <h6 class="card-title">$<%= product.price %></h6>
+                            <p class="card-text">
+                                <%= product.desc %>
+                            </p>
+                            <div class="flex">
+                                <a href="/product/<%= product.prodId %>" class="btn btn-secondary">Details</a>
+                                <form method='POST' action='/add-to-cart'>
+                                    <input type="hidden" name="prodId" value="<%= product.prodId %>">
+                                    <button type='submit' class="btn btn-primary">Add to Cart</button>
+                                </form>
+                            </div>
+                        </div>
+                    </article>
+                <% } %>
+            </div>
+        <% } else { %>
+            <h1>No Products Found!</h1>
+        <% } %>    
+    </main>
+<%- include('../partials/end.ejs')%>

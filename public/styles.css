@@ -1,0 +1,36 @@
+.navbar-nav {
+    display: flex;
+}
+
+main {
+    padding: 20px 10px;
+    display: block;
+}
+
+.form {
+    width: 50%;
+}
+
+.grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.card {
+    margin-right: 10px;
+}
+
+.product-item {
+    width: 12rem;
+    font-size: 0.7rem;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.btn {
+    min-width: 60px;
+    font-size: 0.6rem;
+}

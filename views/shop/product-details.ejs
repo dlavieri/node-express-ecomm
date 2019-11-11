@@ -1,0 +1,14 @@
+<%- include('../partials/head.ejs') %>
+<%- include('../partials/nav.ejs') %>
+    <main>
+        <h3><%= prod.name %></h3>
+        <hr/>
+        <img src='<%= prod.imageUrl %>' alt='<%= prod.name %>' width="150px"/>
+        <h5><%= prod.desc %></h5>
+        <h6>$<%= prod.price %></h6>
+        <form method='POST' action='/add-to-cart'>
+            <input type="hidden" name="prodId" value="<%= prod.prodId %>">
+            <button type='submit' class="btn btn-primary">Add to Cart</button>
+        </form>
+    </main>
+<%- include('../partials/end.ejs') %>

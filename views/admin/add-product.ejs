@@ -1,0 +1,30 @@
+<%- include('../partials/head.ejs') %>
+<%- include('../partials/nav.ejs') %>
+    <main>
+        <form method='POST' action='/admin/<% if (editMode) {%>edit-product<%} else {%>add-product<% }%>' class="form">
+            <div class="form-group">
+                <label for="name">Product Name</label>
+                <input class="form-control" name="name" type="text" id="product-name" value="<% if (editMode) {%><%=product.name%><% }%>">
+            </div>
+            
+            <div class="form-group">
+                <label for="imageUrl">Image URL</label>
+                <input class="form-control" name="imageUrl" type="text" id="product-img" value="<% if (editMode) {%><%=product.imageUrl%><% }%>">
+            </div>
+            
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input class="form-control" name="price" type="number" id="product-price" value="<% if (editMode) {%><%=product.price%><% }%>">
+            </div>
+
+            <div class="form-group">
+                <label for="desc">Description</label>
+                <textarea class="form-control" name="desc" type="text" id="product-desc"><% if (editMode) {%><%=product.desc%><% }%></textarea>
+            </div>
+            <% if (editMode) {%>
+                <input type="hidden" name="prodId" value="<%= product.prodId%>">
+            <% }%>
+            <button class="btn btn-primary" type="submit"><% if (editMode) {%>Update Product<%} else {%>Add Product<% }%></button>
+        </form>
+    </main>
+<%- include('../partials/end.ejs') %>
