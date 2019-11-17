@@ -15,7 +15,7 @@
                                     <%= product.desc %>
                                 </p>
                                 <form method='POST' action='/add-to-cart'>
-                                    <input type="hidden" name="prodId" value="<%= product.prodId %>">
+                                    <input type="hidden" name="prodId" value="<%= product.id %>">
                                     <button type='submit' class="btn btn-primary">Add to Cart</button>
                                 </form>
                             </div>

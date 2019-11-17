@@ -2,5 +2,24 @@
 <%- include('../partials/nav.ejs') %>
     <main>
          <h1>Your Cart</h1>
+            <% if (cart.length === 0) { %>
+                <h6>No cart!</h6>
+            <% } else { %>
+                 <ul>
+                  <% cart.forEach(prod => { %>
+                    <li class="cart-item">
+                        <p><%= prod.name %></p>
+                        <p><%= prod.cartItem.quantity %></p>
+                        <form method="POST" action="/remove-from-cart">
+                            <input type="hidden" value='<%= prod.id %>' name='prodId'>
+                            <button type="submit" class="btn btn-danger">Remove</button>
+                        </form> 
+                    </li>
+                <% }) %>
+                </ul>
+                <form method="POST" action="/create-order">
+                    <button type="submit" class="btn btn-success">Checkout</button>
+                </form>
+            <% } %>
     </main>
 <%- include('../partials/end.ejs') %>

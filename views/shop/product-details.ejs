@@ -7,7 +7,7 @@
         <h5><%= prod.desc %></h5>
         <h6>$<%= prod.price %></h6>
         <form method='POST' action='/add-to-cart'>
-            <input type="hidden" name="prodId" value="<%= prod.prodId %>">
+            <input type="hidden" name="prodId" value="<%= prod.id %>">
             <button type='submit' class="btn btn-primary">Add to Cart</button>
         </form>
     </main>
